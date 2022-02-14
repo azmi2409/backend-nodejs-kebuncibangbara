@@ -15,7 +15,7 @@ async function initialize() {
     port,
     user,
     password,
-    ssl: { ca: fs.readFileSync("/etc/pki/tls/certs/ca-bundle.crt") },
+    ssl: { ca: fs.readFileSync("./_helpers/ca-bundle.crt") },
   });
   await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
 
@@ -25,7 +25,7 @@ async function initialize() {
     dialect: "mysql",
     dialectOptions: {
       ssl: {
-        ca: fs.readFileSync("/etc/pki/tls/certs/ca-bundle.crt"),
+        ca: fs.readFileSync("./_helpers/ca-bundle.crt"),
       },
     },
   });
