@@ -1,0 +1,9 @@
+﻿{
+    "database": {
+        "host": "3nd44pd2l6ag.ap-southeast-2.psdb.cloud",
+        "port": 3306,
+        "user": "s4t0zpgdjk66",
+        "password": "pscale_pw_SKo9crrDOQCrkjPy_eRwAoCrwWbI8vsZTyu3evS5dA4",
+        "database": "cbr-farm-management"
+    }
+}
