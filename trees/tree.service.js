@@ -11,9 +11,7 @@ module.exports = {
 };
 
 async function getAll() {
-    return await db.Tree.findAndCountAll({
-        limit:39
-    });
+    return await db.Tree.findAndCountAll();
 }
 
 async function getById(id) {
