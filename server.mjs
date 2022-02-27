@@ -30,7 +30,7 @@ supertokens.init({
     appName: "Cbr Backend",
     apiDomain: "http://localhost:4000",
     websiteDomain: "http://localhost:3000",
-    apiBasePath: "/",
+    apiBasePath: "/auth",
     websiteBasePath: "/",
   },
   recipeList: [
