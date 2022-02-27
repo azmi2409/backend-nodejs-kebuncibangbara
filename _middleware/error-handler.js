@@ -1,6 +1,6 @@
-module.exports = errorHandler;
+module.exports = errorHandlers;
 
-function errorHandler(err, req, res, next) {
+function errorHandlers(err, req, res, next) {
     switch (true) {
         case typeof err === 'string':
             // custom application error

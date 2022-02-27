@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const db = require('_helpers/db');
+const db = require('../_helpers/db');
 
 module.exports = {
     getById,

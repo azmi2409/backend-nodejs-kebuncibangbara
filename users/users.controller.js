@@ -4,10 +4,11 @@ const Joi = require('joi');
 const validateRequest = require('_middleware/validate-request');
 const Role = require('_helpers/role');
 const userService = require('./user.service');
+const { middleware } = require("supertokens-node/framework/express");
 
 // routes
 
-router.get('/', getAll);
+router.get('/', middleware, getAll);
 router.get('/:id', getById);
 router.post('/', createSchema, create);
 router.put('/:id', updateSchema, update);

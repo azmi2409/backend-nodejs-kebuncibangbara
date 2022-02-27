@@ -1,18 +1,18 @@
 const express = require('express');
-const router = express.Router();
+const logsRouter = express.Router();
 const Joi = require('joi');
 //const validateRequest = require('_middleware/validate-request');
 const logService = require('./log.service');
 
 // routes
 
-router.get('/:id', getById);
-router.post('/', create);
-router.put('/:id', update);
-router.delete('/:id', _delete);
+logsRouter.get('/:id', getById);
+logsRouter.post('/', create);
+logsRouter.put('/:id', update);
+logsRouter.delete('/:id', _delete);
 
 
-module.exports = router;
+module.exports = logsRouter;
 
 // route functions
 

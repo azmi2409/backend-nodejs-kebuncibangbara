@@ -1,20 +1,20 @@
 const express = require('express');
-const router = express.Router();
+const treesRouter = express.Router();
 const Joi = require('joi');
-const validateRequest = require('_middleware/validate-request');
+//const validateRequest = require('_middleware/validate-request');
 const treeService = require('./tree.service');
 
 // routes
 
-router.get('/init', initTrees);
-router.get('/', getAll);
-router.get('/:id', getById);
-router.post('/', createSchema, create);
-router.put('/:id', updateSchema, update);
-router.delete('/:id', _delete);
+treesRouter.get('/init', initTrees);
+treesRouter.get('/', getAll);
+treesRouter.get('/:id', getById);
+treesRouter.post('/', createSchema, create);
+treesRouter.put('/:id', updateSchema, update);
+treesRouter.delete('/:id', _delete);
 
 
-module.exports = router;
+module.exports = treesRouter;
 
 // route functions
 
