@@ -16,13 +16,11 @@ const app = express();
 const uri = process.env.CONNECTION_URI;
 const api = process.env.API_KEY;
 
-
 supertokens.init({
   framework: "express",
   supertokens: {
     // These are the connection details of the app you created on supertokens.com
-    connectionURI:
-      uri,
+    connectionURI: uri,
     apiKey: api,
   },
   appInfo: {
@@ -41,13 +39,7 @@ supertokens.init({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: "http://localhost:8080",
-    allowedHeaders: ["content-type", ...supertokens.getAllCORSHeaders()],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 // api routes
 app.use(middleware());
