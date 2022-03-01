@@ -3,7 +3,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import errorHandlers from "./_middleware/error-handler";
-import treesRouter, { all } from "./trees/trees.controller";
+import treesRouter from "./trees/trees.controller";
 import logsRouter from "./logs/logs.controller";
 import { errorHandler } from "supertokens-node/framework/express";
 import { middleware } from "supertokens-node/framework/express";
