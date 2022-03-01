@@ -3,7 +3,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import errorHandlers from "./_middleware/error-handler";
-import treesRouter from "./trees/trees.controller";
+import treesRouter, { all } from "./trees/trees.controller";
 import logsRouter from "./logs/logs.controller";
 import { errorHandler } from "supertokens-node/framework/express";
 import { middleware } from "supertokens-node/framework/express";
@@ -42,13 +42,7 @@ const allowedDomain = ['http://localhost:3000','https://demo.kebuncibangbara.xyz
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin: (origin, callback) => {
-    if (allowedDomain.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error())
-    }
-  },
+  origin: allowedDomain,
   allowedHeaders: ["content-type", ...supertokens.getAllCORSHeaders()],
   credentials: true,
 }));
