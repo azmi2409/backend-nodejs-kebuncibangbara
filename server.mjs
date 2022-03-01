@@ -33,7 +33,9 @@ supertokens.init({
   },
   recipeList: [
     EmailPassword.init(), // initializes signin / sign up features
-    Session.init(),
+    Session.init({
+      cookieSecure: false
+    }),
   ],
 });
 
