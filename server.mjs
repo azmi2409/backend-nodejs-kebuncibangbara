@@ -11,6 +11,7 @@ import supertokens from "supertokens-node";
 import Session from "supertokens-node/recipe/session";
 import EmailPassword from "supertokens-node/recipe/emailpassword";
 import { verifySession } from "supertokens-node/recipe/session/framework/express";
+import { SessionRequest } from "supertokens-node/framework/express";
 
 const app = express();
 const uri = process.env.CONNECTION_URI;
@@ -51,14 +52,13 @@ app.use(cors({
 
 // api routes
 app.use(middleware());
-app.get("/getJWT", verifySession(), async (req, res) => {
-  let session = req.session;
+app.get("/logout", verifySession(), async (req, res) => {
+  await req.session.revokeSession();
 
-  let jwt = session.getAccessTokenPayload()["jwt"];
-
-  res.json({ token: jwt });
+  res.send("Success! User session revoked");
 });
-app.use("/trees", treesRouter);
+
+app.use("/trees",verifySession(), treesRouter);
 app.use("/logs", logsRouter);
 
 // global error handler
