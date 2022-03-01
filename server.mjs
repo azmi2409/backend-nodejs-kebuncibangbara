@@ -40,7 +40,7 @@ supertokens.init({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin: /*"https://demo.kebuncibangbara.xyz"*/'localhost:3000',
+  origin: /*"https://demo.kebuncibangbara.xyz"*/'*',
   allowedHeaders: ["content-type", ...supertokens.getAllCORSHeaders()],
   credentials: true,
 }));
