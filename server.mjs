@@ -39,11 +39,11 @@ supertokens.init({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-  origin: /*"https://demo.kebuncibangbara.xyz"*/'*',
+app.use(cors(/*{
+  origin: "https://demo.kebuncibangbara.xyz",
   allowedHeaders: ["content-type", ...supertokens.getAllCORSHeaders()],
   credentials: true,
-}));
+}*/));
 
 // api routes
 app.use(middleware());
