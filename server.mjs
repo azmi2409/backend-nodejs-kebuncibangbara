@@ -54,7 +54,7 @@ app.get("/getJWT", verifySession(), async (req, res) => {
 
   res.json({ token: jwt });
 });
-app.use("/trees", treesRouter);
+app.use("/trees",verifySession(), treesRouter);
 app.use("/logs", logsRouter);
 
 // global error handler
