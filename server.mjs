@@ -26,8 +26,8 @@ supertokens.init({
   appInfo: {
     // learn more about this on https://supertokens.com/docs/session/appinfo
     appName: "Cbr Backend",
-    apiDomain: "http://localhost:4000",
-    websiteDomain: "http://localhost:3000",
+    apiDomain: "https://cbr-node.herokuapp.com",
+    websiteDomain: "https://demo.kebuncibangbara.xyz",
     apiBasePath: "/auth",
     websiteBasePath: "/",
   },
@@ -37,10 +37,18 @@ supertokens.init({
   ],
 });
 
+const allowedDomain = ['http://localhost:3000','https://demo.kebuncibangbara.xyz'];
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin: "https://demo.kebuncibangbara.xyz",
+  origin: (origin, callback) => {
+    if (allowedDomain.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error())
+    }
+  },
   allowedHeaders: ["content-type", ...supertokens.getAllCORSHeaders()],
   credentials: true,
 }));
