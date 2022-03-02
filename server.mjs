@@ -33,21 +33,24 @@ supertokens.init({
   },
   recipeList: [
     EmailPassword.init(), // initializes signin / sign up features
-    Session.init({
-      cookieSecure: true
-    }),
+    Session.init(),
   ],
 });
 
-const allowedDomain = ['http://localhost:3000','https://demo.kebuncibangbara.xyz'];
+const allowedDomain = [
+  "http://localhost:3000",
+  "https://demo.kebuncibangbara.xyz",
+];
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-  origin: allowedDomain,
-  allowedHeaders: ["content-type", ...supertokens.getAllCORSHeaders()],
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: allowedDomain,
+    allowedHeaders: ["content-type", ...supertokens.getAllCORSHeaders()],
+    credentials: true,
+  })
+);
 
 // api routes
 app.use(middleware());
@@ -57,7 +60,7 @@ app.get("/logout", verifySession(), async (req, res) => {
   res.send("Success! User session revoked");
 });
 
-app.use("/trees",verifySession(), treesRouter);
+app.use("/trees", verifySession(), treesRouter);
 app.use("/logs", logsRouter);
 
 // global error handler
