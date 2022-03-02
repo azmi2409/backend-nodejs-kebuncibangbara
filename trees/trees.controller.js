@@ -1,17 +1,18 @@
 const express = require('express');
 const treesRouter = express.Router();
 const Joi = require('joi');
-//const validateRequest = require('_middleware/validate-request');
+const validateRequest = require('../_middleware/validate-request');
 const treeService = require('./tree.service');
+const { verifySession } = require("supertokens-node/recipe/session/framework/express");
 
 // routes
 
-treesRouter.get('/init', initTrees);
+treesRouter.get('/init', verifySession() , initTrees);
 treesRouter.get('/', getAll);
 treesRouter.get('/:id', getById);
-treesRouter.post('/', createSchema, create);
-treesRouter.put('/:id', updateSchema, update);
-treesRouter.delete('/:id', _delete);
+treesRouter.post('/', verifySession(), create);
+treesRouter.put('/:id', verifySession(), update);
+treesRouter.delete('/:id',verifySession(), _delete);
 
 
 module.exports = treesRouter;
