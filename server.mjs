@@ -28,7 +28,7 @@ supertokens.init({
     appName: "Cbr Backend",
     apiDomain: "https://cbr-node.herokuapp.com",
     websiteDomain: "https://demo.kebuncibangbara.xyz",
-    apiBasePath: "/auth",
+    apiBasePath: "/",
     websiteBasePath: "/",
   },
   recipeList: [
