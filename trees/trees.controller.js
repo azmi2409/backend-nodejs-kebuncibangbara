@@ -7,12 +7,12 @@ const { verifySession } = require("supertokens-node/recipe/session/framework/exp
 
 // routes
 
-treesRouter.get('/init', verifySession() , initTrees);
+treesRouter.get('/init', initTrees);
 treesRouter.get('/', getAll);
 treesRouter.get('/:id', getById);
 treesRouter.post('/', verifySession(), create);
 treesRouter.put('/:id', verifySession(), update);
-treesRouter.delete('/:id',verifySession(), _delete);
+treesRouter.delete('/:id', verifySession(), _delete);
 
 
 module.exports = treesRouter;

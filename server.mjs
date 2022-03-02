@@ -39,7 +39,7 @@ supertokens.init({
 
 const allowedDomain = [
   "http://localhost:3000",
-  "https://demo.kebuncibangbara.xyz",
+  "https://demo.kebuncibangbara.xyz"
 ];
 
 app.use(express.json());
@@ -54,13 +54,7 @@ app.use(
 
 // api routes
 app.use(middleware());
-app.get("/logout", verifySession(), async (req, res) => {
-  await req.session.revokeSession();
-
-  res.send("Success! User session revoked");
-});
-
-app.use("/trees", verifySession(), treesRouter);
+app.use("/trees", treesRouter);
 app.use("/logs", logsRouter);
 
 // global error handler
