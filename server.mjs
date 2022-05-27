@@ -2,14 +2,14 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import errorHandlers from "./_middleware/error-handler";
-import treesRouter from "./trees/trees.controller";
-import logsRouter from "./logs/logs.controller";
-import { errorHandler } from "supertokens-node/framework/express";
-import { middleware } from "supertokens-node/framework/express";
-import supertokens from "supertokens-node";
-import Session from "supertokens-node/recipe/session";
-import EmailPassword from "supertokens-node/recipe/emailpassword";
+import errorHandlers from "./_middleware/error-handler.js";
+import treesRouter from "./trees/trees.controller.js";
+import logsRouter from "./logs/logs.controller.js";
+import { errorHandler } from "supertokens-node/framework/express/index.js";
+import { middleware } from "supertokens-node/framework/express/index.js";
+import supertokens from "supertokens-node/index.js";
+import Session from "supertokens-node/recipe/session/index.js";
+import EmailPassword from "supertokens-node/recipe/emailpassword/index.js";
 
 const app = express();
 const uri = process.env.CONNECTION_URI;

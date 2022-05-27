@@ -1,4 +1,3 @@
-const config = require("../config.json");
 const mysql = require("mysql2/promise");
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
@@ -14,13 +13,9 @@ async function initialize() {
   const user = process.env.DB_USER || "root";
   const password = process.env.DB_PASSWORD || "";
   const database = process.env.DB_DATABASE || "cbr-farm-management";
-  const connection = await mysql.createConnection({
-    host,
-    port,
-    user,
-    password,
-    ssl: { ca: fs.readFileSync("./_helpers/ca-bundle.crt") },
-  });
+  const dsn = process.env.DB_URL;
+  const connection = await mysql.createConnection(dsn);
+  console.log("Connected to database");
   await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
 
   // connect to db
