@@ -9,7 +9,11 @@ initialize();
 
 async function initialize() {
   // create db if it doesn't already exist
-  const { host, port, user, password, database } = config.database;
+  const host = process.env.DB_HOST || "localhost";
+  const port = process.env.DB_PORT || 3306;
+  const user = process.env.DB_USER || "root";
+  const password = process.env.DB_PASSWORD || "";
+  const database = process.env.DB_DATABASE || "cbr-farm-management";
   const connection = await mysql.createConnection({
     host,
     port,
