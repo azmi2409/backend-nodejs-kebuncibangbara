@@ -56,7 +56,7 @@ app.use(middleware());
 app.use("/trees", treesRouter);
 app.use("/logs", logsRouter);
 
-// global error handler
+// global error handlers
 app.use(errorHandler());
 app.use(errorHandlers);
 
